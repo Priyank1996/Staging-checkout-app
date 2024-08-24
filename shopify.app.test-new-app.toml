@@ -1,0 +1,29 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "cf1306dd5a7f7b40156767aabd80e1ed"
+name = "Test new app"
+handle = "test-new-app-76"
+application_url = "https://campaign-invisible-cabinet-offshore.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "pet-store-dev.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = ""
+
+[auth]
+redirect_urls = [
+  "https://campaign-invisible-cabinet-offshore.trycloudflare.com/auth/callback",
+  "https://campaign-invisible-cabinet-offshore.trycloudflare.com/auth/shopify/callback",
+  "https://campaign-invisible-cabinet-offshore.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-07"
+
+[pos]
+embedded = false

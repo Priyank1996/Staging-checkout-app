@@ -1,4 +1,4 @@
-import { PassThrough } from "stream";
+import { PassThrough } from "node:stream";
 import { renderToPipeableStream } from "react-dom/server";
 import { RemixServer } from "@remix-run/react";
 import {
@@ -7,6 +7,19 @@ import {
 } from "@remix-run/node";
 import { isbot } from "isbot";
 import { addDocumentResponseHeaders } from "./shopify.server";
+import Shopify from '@shopify/shopify-api';
+Shopify.App.use(async (ctx: Shopify.Context, next: () => Promise<void>) => {
+  if (ctx.request.path === '/thank-you') {
+    // Render the thank you message directly as HTML
+    ctx.response.type = 'text/html';
+    ctx.response.body = `
+      <h2>Thank you for your order!</h2>
+      <p>Your order has been processed successfully.</p>
+      <p>You'll receive a confirmation email shortly.</p>
+    `;
+  }
+  await next();
+});
 
 const ABORT_DELAY = 5000;
 

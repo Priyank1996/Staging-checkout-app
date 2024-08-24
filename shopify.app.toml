@@ -1,10 +1,28 @@
-# This file stores configurations for your Shopify app.
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
+client_id = "3bf62d042e373a7f539600b469f98b26"
+name = "Test-app"
+handle = "test-app-10211"
+application_url = "https://afraid-years-football-retirement.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "pet-store-dev.myshopify.com"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
 scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://afraid-years-football-retirement.trycloudflare.com/auth/callback",
+  "https://afraid-years-football-retirement.trycloudflare.com/auth/shopify/callback",
+  "https://afraid-years-football-retirement.trycloudflare.com/api/auth/callback"
+]
 
 [webhooks]
 api_version = "2024-07"
 
-  [[webhooks.subscriptions]]
-  topics = [ "app/uninstalled" ]
-  uri = "/webhooks"
+[pos]
+embedded = false
